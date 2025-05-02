@@ -211,18 +211,18 @@ contract WeedVendingTest is Test {
     }
 
     function test_ExecuteWithdrawal_RevertIfNoRequest() public {
-    // Setup - ensure contract has balance
-    vm.prank(user1);
-    vending.buy{value: SATIVA_PRICE}("Sativa", 1);
+        // Setup - ensure contract has balance
+        vm.prank(user1);
+        vending.buy{value: SATIVA_PRICE}("Sativa", 1);
 
-    // Test - should revert with new message
-    vm.prank(admin);
-    vm.expectRevert("No withdrawal requested");
-    vending.executeWithdrawal();
-    
-    // Verification - ensure state unchanged
-    assertEq(vending.withdrawalRequestTime(), 0);
-}
+        // Test - should revert with new message
+        vm.prank(admin);
+        vm.expectRevert("No withdrawal requested");
+        vending.executeWithdrawal();
+
+        // Verification - ensure state unchanged
+        assertEq(vending.withdrawalRequestTime(), 0);
+    }
 
     function test_Withdrawal_RevertIfNotAdmin() public {
         vm.prank(user1);

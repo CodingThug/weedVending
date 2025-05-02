@@ -103,12 +103,12 @@ contract WeedVending is AccessControl {
     }
 
     function executeWithdrawal() public onlyRole(ADMIN_ROLE) {
-    require(withdrawalRequestTime != 0, "No withdrawal requested");
-    require(block.timestamp >= withdrawalRequestTime, "Timelock not expired");
-    (bool success,) = payable(msg.sender).call{value: address(this).balance}("");
-    require(success, "Transfer failed");
-    withdrawalRequestTime = 0;
-}
+        require(withdrawalRequestTime != 0, "No withdrawal requested");
+        require(block.timestamp >= withdrawalRequestTime, "Timelock not expired");
+        (bool success,) = payable(msg.sender).call{value: address(this).balance}("");
+        require(success, "Transfer failed");
+        withdrawalRequestTime = 0;
+    }
 
     function togglePause() public onlyRole(ADMIN_ROLE) {
         paused = !paused;
