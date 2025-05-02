@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.1/ethers.umd.min.js defer></script>
+    <script src="app.js" defer></script>
+  <title>Weed Vending</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Frano's Vending</h1>
+    <div id="wallet" class="section slide-in">
+        <button id="connectWallet" class="pulse">Connect Wallet</button>
+        <p id="walletAddress">Not connected</p>
+    </div>
+    <div id="strainsSection" class="section slide-in">
+        <h2>Choose Your Strain</h2>
+        <div class="strain-grid">
+            <div class="strain-card" data-strain="Sativa">
+                <img src="art blaze it GIF by Animation Domination High-Def.gif" alt="Sativa Strain" class="strain-gif">
+                <h3>Sativa</h3>
+                <p>Price: 0.005 ETH/unit</p>
+                <p>Stock: <span id="sativaStock">0</span> units</p>
+            </div>
+            <div class="strain-card" data-strain="Indica">
+                <img src="art blaze it GIF by Animation Domination High-Def.gif" alt="Indica Strain" class="strain-gif">
+                <h3>Indica</h3>
+                <p>Price: 0.006 ETH/unit</p>
+                <p>Stock: <span id="indicaStock">0</span> units</p>
+            </div>
+            <div class="strain-card" data-strain="Hybrid">
+                <img src="art blaze it GIF by Animation Domination High-Def.gif" alt="Hybrid Strain" class="strain-gif">
+                <h3>Hybrid</h3>
+                <p>Price: 0.007 ETH/unit</p>
+                <p>Stock: <span id="hybridStock">0</span> units</p>
+            </div>
+        </div>
+    </div>
+    <div id="buySection" class="section slide-in">
+        <h2>Purchase</h2>
+        <p>Selected Strain: <span id="selectedStrain">None</span></p>
+        <input type="number" id="amountInput" placeholder="Amount (min 1)" min="1">
+        <p id="priceDisplay">Total: 0 ETH</p>
+        <button id="buyButton" class="pulse" disabled>Buy Now</button>
+        <p id="error" class="error"></p>
+    </div>
+</div>
+</body>
+</html>
